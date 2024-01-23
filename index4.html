@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Add your head content here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website Title</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="C:\Users\vivaa\digital-nomads\styles4.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Header -->
+  <header class="neon-border col-md-12">
+    <h1>Best countries to relocate</h1>
+  </header>
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper">
+
+    <!-- Main Sidebar -->
+    <aside class="col-md-3 neon-border">
+      <div id="search-container">
+        <h2>Search for country</h2>
+        <!-- Search box for country -->
+        <input type="text" id="countryInput" class="form-control" placeholder="Enter country">
+        <button id="searchButton" class="btn btn-primary">Search</button>
+        <!-- List of countries -->
+        <ul id="countriesList"></ul>
+        <div id="result"></div>
+      </div>
+      <div id="history">
+        <h5>Searched Countries History</h5>
+        <!-- List of saved countries -->
+        <ul id="savedCountriesList"></ul>
+      </div>
+      <h5>Saved jobs History</h5>
+      <!-- Saved Jobs List -->
+      <ul id="savedJobsList"></ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="col-md-6">
+      <h2>Country Information</h2>
+      <!-- Map -->
+      <div id="map"></div>
+
+      <div id="countryInfo">
+        <!-- Flag (Set as background image) -->
+        <div id="countryFlag" style="background-size: cover; background-position: center;"></div>
+        <!-- Additional details -->
+        <h3 id="navy">Country Information</h3>
+        <p id="navy" ><strong>Country Name:</strong> <span id="countryName"></span></p>
+        <p><strong>Capital:</strong> <span id="capital"></span></p>
+        <p><strong>Population:</strong> <span id="population"></span></p>
+        <p><strong>Currency:</strong> <span id="currency"></span></p>
+        <p><strong>Language:</strong> <span id="language"></span></p>
+        <p><strong>Region:</strong> <span id="region"></span></p>
+        <p><strong>Subregion:</strong> <span id="subregion"></span></p>
+        <p><strong>Timezone:</strong> <span id="timezone"></span></p>
+        <p><strong>Calling Code:</strong> <span id="callingCode"></span></p>
+        <p><strong>Top Level Domain:</strong> <span id="topLevelDomain"></span></p>
+        <p><strong>Latitude:</strong> <span id="latitude"></span></p>
+      </div>
+
+      <!-- Jobs Information -->
+      <div class="row">
+        <div class="col-md-12 neon-border">
+          <h2>Jobs Information</h2>
+          <!-- Job-related information -->
+          <div id="jobsInfo"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside class="col-md-3 neon-border">
+      <h3>Stay updated</h3>
+      <!-- Flag Container -->
+      <div id="flagContainer"></div>
+
+      <!-- News Container -->
+      <div id="newsContainer"></div>
+
+     
+    </aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="neon-border col-md-12">
+    <p>all rights reserved</p>
+  </footer>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap" async defer></script>
+    <script src="C:\Users\vivaa\Downloads\main.js"></script>
+  </body>
+  </html>
