@@ -133,7 +133,7 @@
     <!-- Main Body -->
 
     <main>
-
+        
         <!-- Header -->
 
         <div class="jumbotron-fluid d-flex justify-content-center align-items-end" id="custom-jumbo">
@@ -146,7 +146,7 @@
         </div> 
 
 
-        <!-- NEW LAYOUT Desintation overview // design may be updated to take up 90% of initial load screen depending on country content availble  -->
+        <!-- Overview section  -->
 
         <div class="container d-flex align-items-center justify-content-center" id="overview-container">
 
@@ -175,7 +175,7 @@
 
         <!-- Job search results section -->
     
-        <div class="container" id="job-container">
+        <div class="container py-5" id="job-container">
     
             <div class="row justify-content-center text-center">
                 <div class="col-8 m-4 jobs-header">
@@ -274,77 +274,81 @@
     
         </div>
 
-        <!-- Currency converter 
 
-            <div class="container mt-5">
-        <form id="currencyConverterForm">
-            <div class="form-row">
-                <!-- Base Currency Input -->
-                <div class="form-group col-md-8">
-                    <label for="baseCurrencyInput">Base Currency:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="baseCurrencyButton">
-                                <img src="https://via.placeholder.com/30" alt="Country Flag" class="img-fluid rounded-circle mr-2 currency-flag" id="baseCurrencyImg">
-                                <span id="baseCurrencyCode">GBP</span>
-                            </button>
-                            <ul class="dropdown-menu" id="baseCurrencyDropdown" aria-labelledby="baseCurrencyDropdownButton">
-                                <!-- Dropdown items will be dynamically added here -->
-                            </ul>
+        <!-- JavaScript currency converter -->
+
+            <div class="container d-flex align-items-center justify-content-center" id="currency-container">
+
+                <div class="row col-4 justify-content-center text-center">
+                    <div class="col-8">
+                        <h1 id="currency-convert-title">Currency Conversion</h1>
+                        <h6>Navigate the world of foreign currency exhange with the Digital Nomad converter</h6>
+                    </div>
+                </div>
+
+
+                <form id="currencyConverterForm">
+                    <div class="form-row d-flex justify-content-center mb-2">
+
+                        <!-- Base Currency Input -->
+                        <div class="form-group col-md-10">
+                            <!-- <label for="baseCurrencyInput">Base Currency:</label> -->
+                                <div class="input-group justify-content-around">
+                                    <div class="col-2">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="baseCurrencyButton">
+                                                <img src="https://via.placeholder.com/30" alt="Country Flag" class="img-fluid rounded-circle mr-2 currency-flag" id="baseCurrencyImg">
+                                                <span id="baseCurrencyCode">GBP</span>
+                                            </button>
+                                            <ul class="dropdown-menu" id="baseCurrencyDropdown" aria-labelledby="baseCurrencyDropdownButton">
+                                            <!-- Dropdown items will be dynamically added here -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" id="baseCurrencyInput" placeholder="Enter base currency" maxlength="20">
+                                    </div>
+                                </div>
                         </div>
-                        <input type="text" class="form-control" id="baseCurrencyInput" placeholder="Enter base currency" maxlength="20">
+
                     </div>
-                </div>
 
-                <button class="btn btn-primary" type="button" id="toggleButton">Toggle</button>
+                    <div class="form-row d-flex justify-content-center">
 
-                <!-- Converted Currency Input -->
-                <div class="form-group col-md-8">
-                    <label for="convertedCurrencyInput">Converted Currency:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="convertedCurrencyButton">
-                                <img src="https://via.placeholder.com/30" alt="Country Flag" class="img-fluid rounded-circle mr-2 currency-flag" id="convertedCurrencyImg">
-                                <span id="convertedCurrencyCode">USD</span>
-                            </button>
-                            <ul class="dropdown-menu" id="convertedCurrencyDropdown" aria-labelledby="convertedCurrencyDropdownButton">
-                                <!-- Dropdown items will be dynamically added here -->
-                            </ul>
+                        <!-- Converted Currency Input -->
+                        <div class="form-group col-md-10">
+                            <!-- <label for="convertedCurrencyInput">Converted Currency:</label> -->
+                                <div class="input-group justify-content-around">
+                                    <div class="col-2">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="convertedCurrencyButton">
+                                                <img src="https://via.placeholder.com/30" alt="Country Flag" class="img-fluid rounded-circle mr-2 currency-flag" id="convertedCurrencyImg">
+                                                <span id="convertedCurrencyCode">USD</span>
+                                            </button>
+                                            <ul class="dropdown-menu" id="convertedCurrencyDropdown" aria-labelledby="convertedCurrencyDropdownButton">
+                                            <!-- Dropdown items will be dynamically added here -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" id="convertedCurrencyInput" placeholder="Converted currency will appear here" maxlength="20">
+                                    </div>
+                                </div>
                         </div>
-                        <input type="text" class="form-control" id="convertedCurrencyInput" placeholder="Converted currency will appear here" maxlength="20">
+
                     </div>
-                </div>
 
-        </div>
+                    <button class="btn btn-primary" type="button" id="toggleButton">Toggle</button> 
 
-</div>
-
-        <div class="container-fluid justify-content-center m-4">
-    
-            <div class="row justify-content-center text-center">
-                <div class="col-8 m-4">
-                    <h1>Currency Converter</h1>
-                    <h6>Navigate the world of foreign currency exhange with the Digital Nomad converter</h6>
-                </div>
+                </form>    
             </div>
-        
-            <div class="row justify-content-center text-center">
-                <div class="col-2 d-flex justify-content-center text-center">
-                    <div class="currency-dropdown-wrapper">
-                        <h3>CURRENCY CONVERTER DROPDOWN</h3>
-                    </div>
-                </div>
 
-                <div class="col-7 d-flex justify-content-center text-center">
-                    <div class="currency-conversion-wrapper">
-                        <h3>CURRENCY CONVERTER RESULTS</h3>
-                    </div>
-                </div>
-            </div>
-    
-        </div> -->
 
-        <!-- NEW LAYOUT // Currency converter  -->
+
+
+        <!-- Currency converter layout / COMMENTED - KEEP FOR VISUAL REFERENCE  -->
+
+        <div id="layoutforconversionsection-commented">
 
         <!-- <div class="container" id="currency-container">
     
@@ -353,11 +357,11 @@
                     <h1 id="currency-convert-title">Currency Conversion</h1>
                     <h6>Navigate the world of foreign currency exhange with the Digital Nomad converter</h6>
                 </div>
-            </div> -->
+            </div>
 
-            <!-- Row for base currency -->
+            Row for base currency
 
-            <!-- <div class="row justify-content-around">
+            <div class="row justify-content-around">
                 <div class="col-2 base-currency">
                     <h1>GBP</h1>
                 </div>
@@ -365,12 +369,12 @@
                     <h1>One</h1>
 
                 </div>
-            </div> -->
+            </div> 
 
 
-            <!-- Row for converted currency -->
+            Row for converted currency 
 
-            <!-- <div class="row justify-content-around">
+            <div class="row justify-content-around">
                 <div class="col-2 converted-currency">
                     <h1>JPY</h1>
                 </div>
@@ -381,10 +385,12 @@
         
         </div>  -->
 
+        </div>
+
 
         <!-- Map container -->
 
-        <div class="container">
+        <div class="container pt-5" id="map-container">
 
             <div class="row justify-content-center text-center">
                 <div class="col-8 m-4">
@@ -392,7 +398,9 @@
                     <h6>Dive into your destination here:</h6>
                 </div>
             </div>
-
+            <div class="row text-center">
+                <h1>MAP TO BE ADDED BELOW</h1>
+            </div>
         </div>
 
     </main>

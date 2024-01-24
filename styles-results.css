@@ -25,8 +25,11 @@ body {
 
 #currency-container {
     background-color: white;
-    height: 20vw;
-    margin-bottom: 2vw;
+    height: 30vw;
+}
+
+#currencyConverterForm {
+    width: 70%;
 }
 
 .base-currency {
@@ -39,11 +42,22 @@ body {
     background-color: #07211B;
 }
 
+#baseCurrencyImg, #convertedCurrencyImg {
+    position: absolute;
+    top: 50%; /* Adjust the positioning as needed */
+    left: 5px; /* Adjust the positioning as needed */
+    transform: translateY(-50%);
+    width: 20px; /* Adjust the size as needed */
+    height: 20px; /* Adjust the size as needed */
+    /* border-radius: 70%; Make the image circular */
+}
+
+
 .jobs-header {
     color: white;
 }
 
-#jobs-title, #currency-convert-title {
+#jobs-title, #currency-convert-title { 
     color: #B2E1D7;
 }
 
@@ -66,6 +80,12 @@ body {
 
 #dn-icon-results {
     width: 100%;
+    position: relative;
+    top: 0; /* Adjust the positioning as needed */
+    left: 0; /* Adjust the positioning as needed */
+    transform: 0;
+    height: 100%; /* Adjust the size as needed */
+    /* border-radius: 70%; Make the image circular */
 }
 
 
@@ -79,6 +99,10 @@ body {
     height: 100%;
     width: 100%;
     background-color: firebrick;
+}
+
+#map-container {
+    height: 50vw;
 }
 
 #history-button {
