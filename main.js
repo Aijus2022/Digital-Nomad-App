@@ -1,9 +1,13 @@
 var https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap
-    document.getElementById('question1').querySelector('button').addEventListener('click', function () {
-    // Get the value from the input field
-    var countryName = document.getElementById('question1').querySelector('input').value;
+  document.querySelector('.question-container.active button').addEventListener('click', function () {
+    // Get the value from local storage
+    var countryName = localStorage.getItem('Country');
 
-    // Rest of your code...
+    // Fetch country information and map
+    fetchCountryInfo(countryName);
+    fetchMapForCountry(countryName);
+    fetchAndDisplayFlag(countryName);
+    fetchNewsForCurrentCountry(countryName);
 });
 
 
