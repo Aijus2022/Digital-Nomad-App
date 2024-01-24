@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Nomad</title>
+    <link href="https://fonts.cdnfonts.com/css/blacker-display" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/br-shape" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/rangile" rel="stylesheet">
+                
+    <link href="styles.css" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div id="opening-page">
+        <h1>Welcome Digital Nomad</h1>
+    </div>
+
+    <div id="question-wrapper">
+
+        <div id="question1" class="question-container active">
+            <h2>Where do you want to explore?</h2>
+            <input type="text" id="answer1">
+            <button onclick="nextQuestion('question1')">Next</button>
+            <div id="searchResult1"></div>
+        </div>
+    
+        <div id="question2" class="question-container">
+            <h2>What job are you seeking?</h2>
+            <input type="text" id="answer2">
+            <button onclick="nextQuestion('question2')">Next</button>
+        </div>
+    
+        <div id="question3" class="question-container">
+            <h2>And your annual salary requirement? (US Dollar)</h2>
+            <input type="text" id="answer3">
+            <button onclick="showResults()">Show Results</button>
+        </div>
+
+    </div>
+
+
+
+    <div id="results">
+        <h2>Results:</h2>
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+    </div>
+
+    
+    <script src="script.js"></script>
+    
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var openingPage = document.getElementById("opening-page");
+
+        // Show the opening page
+        openingPage.style.opacity = 1;
+
+        // Fade out the opening page after 3 seconds
+        setTimeout(function() {
+            openingPage.style.opacity = 0;
+        }, 2000);
+
+        // Hide the opening page after the fade-out animation completes
+        setTimeout(function() {
+            openingPage.style.display = "none";
+        }, 3500); // Adjust the time accordingly to match the CSS transition duration
+    });
+
+
+  function nextQuestion(currentQuestion) {
+        const currentQuestionElement = document.getElementById(currentQuestion);
+        currentQuestionElement.classList.remove('active');
+
+        // Move to the next question
+        const nextQuestionNumber = parseInt(currentQuestion.charAt(currentQuestion.length - 1)) + 1;
+        const nextQuestionId = 'question' + nextQuestionNumber;
+        const nextQuestionElement = document.getElementById(nextQuestionId);
+
+        setTimeout(() => {
+        currentQuestionElement.style.display = 'none';
+        nextQuestionElement.style.display = 'block';
+        nextQuestionElement.classList.add('active');
+        }, 500); // Adjust the timeout to match the transition duration
+    }
+
+
+    function showResults() {
+
+        // AMEND THIS FUNCTION TO DISPLAY RESULTS HTML PAGE
+        window.location.href = "results.html";
+
+        // Retrieve answers
+        // const answer1 = document.getElementById('answer1').value;
+        // const answer2 = document.getElementById('answer2').value;
+        // const answer3 = document.getElementById('answer3').value;
+
+        // // Display results
+        // document.getElementById('result1').innerText = 'Destination: ' + answer1;
+        // document.getElementById('result2').innerText = 'Job: ' + answer2;
+        // document.getElementById('result3').innerText = 'Salary range: ' + answer3;
+
+        // // Hide questions and show results
+        // document.getElementById('question3').style.display = 'none';
+        // document.getElementById('results').style.display = 'block';
+    }
+
+    </script>
+
+
+
+</body>
+</html>

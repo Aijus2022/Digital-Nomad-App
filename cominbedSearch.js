@@ -205,6 +205,8 @@ const locations = [
         return [];
       }
     }
+
+
   
     // Replacement code for 263 - 350 to implement cards grid 3*3
     // function createCurrentDataElement(country, jobs) {

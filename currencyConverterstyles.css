@@ -18,7 +18,7 @@ li {
 
  }
  
- img {
+ /* img {
    position: absolute;
    top: 50%; /* Adjust the positioning as needed */
    left: 5px; /* Adjust the positioning as needed */
@@ -26,7 +26,7 @@ li {
    width: 20px; /* Adjust the size as needed */
    height: 20px; /* Adjust the size as needed */
    /* border-radius: 70%; Make the image circular */
- }
+ } */
 
  button {
   width: 125px; /* Set your desired width */

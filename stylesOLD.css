@@ -1,0 +1,58 @@
+@import url('https://fonts.cdnfonts.com/css/blacker-display');
+@import url('https://fonts.cdnfonts.com/css/br-shape?styles=170936,170930,170942,170932,170934,170938,170928,170926,170940');
+@import url('https://fonts.cdnfonts.com/css/rangile');
+
+#opening-page {
+    opacity: 0;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 500ms ease; /* Adjust the duration as needed */
+
+}
+
+body {
+    font-family: 'Blacker Display', sans-serif;
+    font-family: 'Blacker Text', sans-serif;
+    /* font-family: 'Rangile', serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column; /* Add this line */
+    background-image: url('Digital\ Nomad\ Colour\ Icon.png');
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: center;
+}
+
+/* ACTION - animate background image */
+
+.question-container {
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.question-container.active {
+  opacity: 1;
+}
+
+#results {
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
