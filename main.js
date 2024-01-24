@@ -1,8 +1,11 @@
 var https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap
-    // Event listener for the form submission
-    document.getElementById('searchButton').addEventListener('click', function () {
-      // Get the value from the input field
-      var countryName = document.getElementById('countryInput').value;
+    document.getElementById('question1').querySelector('button').addEventListener('click', function () {
+    // Get the value from the input field
+    var countryName = document.getElementById('question1').querySelector('input').value;
+
+    // Rest of your code...
+});
+
 
       // Fetch country information and map
       fetchCountryInfo(countryName);
