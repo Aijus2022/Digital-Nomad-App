@@ -1,4 +1,3 @@
-var https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap
   document.querySelector('.question-container.active button').addEventListener('click', function () {
     // Get the value from local storage
     var countryName = localStorage.getItem('Country');
@@ -23,7 +22,7 @@ var https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb
       // Define the URL for the news API request
       var apiKey = 'a9637160edcae1b6761c10ac809f256a';
       var newsApiUrl = `https://gnews.io/api/v4/search?q=${countryName}&lang=en&country=us&max=10&apikey=${apiKey}`;
-      var map ApiUrl = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap`;
+      var mapApiUrl = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap`;
       // Create a new XMLHttpRequest object
       var xhrNews = new XMLHttpRequest();
 
