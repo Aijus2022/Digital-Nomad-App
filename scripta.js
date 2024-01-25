@@ -1,8 +1,9 @@
-var https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap
+//var https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap
     // Event listener for the form submission
     document.getElementById('searchButton').addEventListener('click', function () {
       // Get the value from the input field
       var countryName = document.getElementById('countryInput').value;
+ 
 
       // Fetch country information and map
       fetchCountryInfo(countryName);
@@ -11,12 +12,24 @@ var https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb
       fetchNewsForCurrentCountry(countryName);
     });
 
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      var countryName = localStorage.getItem("lastSearched");
+
+      fetchCountryInfo(countryName);
+      fetchMapForCountry(countryName);
+      fetchAndDisplayFlag(countryName);
+      fetchNewsForCurrentCountry(countryName);
+
+    });
+
     // Function to fetch news data for the current country
     function fetchNewsForCurrentCountry(countryName) {
       // Define the URL for the news API request
       var apiKey = 'a9637160edcae1b6761c10ac809f256a';
       var newsApiUrl = `https://gnews.io/api/v4/search?q=${countryName}&lang=en&country=us&max=10&apikey=${apiKey}`;
-      var map ApiUrl = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap`;
+      var mapApiUrl = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFbMNs-ahpUSJUJ5o-lgDTkMb-lNVGxA&callback=initMap`;
       // Create a new XMLHttpRequest object
       var xhrNews = new XMLHttpRequest();
 
