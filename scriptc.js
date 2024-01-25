@@ -148,6 +148,8 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
             industriesContainer.appendChild(industryButton);
           });
         }
+
+        let selectedCountry;
       
       
         async function combinedJobSearch(countryName, industryName, annualSalaryMin) {
@@ -156,7 +158,7 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
               location.geoName.toLowerCase().includes(countryName.toLowerCase())
             );
       
-            const selectedCountry = matchingLocations.length > 0 ? matchingLocations[0].geoSlug : '';
+             selectedCountry = matchingLocations.length > 0 ? matchingLocations[0].geoSlug : '';
       
             if (!selectedCountry) {
               displayErrorMessage(`Country "${countryName}" not found!`);
@@ -320,8 +322,12 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
           if(!isNumber(annualSalaryMin)){
 
             displayErrorMessage(`${annualSalaryMin} is not a number!` )
+
             return;
+
           }
+
+         
       
           const countryInput = getSelectedCountry();
           const jobIndustry = getSelectedIndustry(); // Get the selected industry
@@ -349,11 +355,18 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
 
           }
 
+
           setLocalStorage(userPreferences);
  
           createCard(userPreferences);
 
           localStorage.setItem("lastSearched",country);
+        
+          
+
+          
+
+
 
           
 
@@ -371,6 +384,9 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
           } catch (error) {
             console.error('Error:', error);
           }
+
+         
+
         }
 
         async function resubmitSearch(country, industry, salary){
@@ -394,6 +410,7 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
             console.error('Error:', error);
 
           }
+
 
         }
 
@@ -566,7 +583,7 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
       
         document.getElementById('search-input').addEventListener('input', async function (event) {
           event.preventDefault();
-          const selectedCountry = getSelectedCountry();
+          selectedCountry = getSelectedCountry();
           const matchingLocations = locations.filter(location =>
             location.geoName.toLowerCase().includes(selectedCountry.toLowerCase())
           );

@@ -1,62 +1,59 @@
 # Digital Nomads App README
 # DN-MVP
+
+![](landing_page.png)
+
+![](job_search_results.png)
+
+![](currency_converter.png)
+
+
+
+
 MVP for digital nomad group project
-https://mitchjsutherland.github.io/DN-MVP/
+https://github.com/FilipKotanski/Digital-Nomad-App
+
+# Digital Nomad App
 
 ## Overview
+Welcome to the Digital Nomad App, a suite of JavaScript applications designed to streamline the job search process for digital nomads. This toolkit consists of three interconnected apps: the **Job Search App**, the **Currency Converter App**, and the **Country Information App**. The HTML uses bootstrap for the intuitive layout. The Digital Nomad App utilises multiple APIs to fetch relevant data and client-side storage to store persistent data.
 
-The Digital Nomads App is a web application created using JavaScript, HTML, CSS, and the Fetch API. This app assists users in searching for remote jobs with a focus on various countries. It utilizes different data sources, including Google Maps for location information.
 
-## Technologies Used
+### Job Search App
 
-- **JavaScript (JS):** The core programming language for implementing logic and functionality.
-- **HTML:** Used for structuring the web page.
-- **CSS:** Responsible for styling and layout.
-- **JSON:** Used for storing and exchanging data between the server and the web application.
-- **DOM Manipulation:** Techniques applied to dynamically update and modify the content of the web page.
+#### Overview
+This app helps digital nomads find remote jobs worldwide, allowing users to search based on their preferred country, job industry, and minimum annual salary.
 
-## Features
+#### Code Description
+The JavaScript code captures user inputs and provides real-time matching suggestions. It includes event listeners for input fields and a search button, triggering dynamic job searches.
 
-### Remote Job Search
+#### Usage
+1. Type in the country and job industry fields to receive matching suggestions.
+2. Click suggestions to populate input fields and trigger job searches.
+3. View search results dynamically displayed below the input fields.
 
-- Users can search for remote jobs with the limitation that the country list is based on the available jobs from the API provider.
+### Currency Converter App
 
-### Country Information
+#### Overview
+Integrated with the Digital Nomad Job Search App, this tool converts job salaries to the user's local currency based on real-time exchange rates.
 
-- The app provides information about the selected country, including its flag and location on Google Maps.
+#### JavaScript Functions
+The code includes functions for fetching exchange rates, toggling currencies, and handling conversion events. Dropdowns provide options for selecting currencies with flags indicating corresponding countries. The dynamic search bar also limits the user's available currency options. 
 
-### Latest News
+#### Usage
+1. Input amounts in either currency field.
+2. Toggle between base and converted currencies.
+3. Dropdowns offer currency selection options with corresponding flags.
+4. Real-time currency conversion occurs as users input amounts or select currencies.
 
-- Users can access the latest news about the selected country.
+### Country Information App
 
-## Implementation Details
+#### Overview
+Complementing the Job Search App, this tool provides detailed information about the country where the job is located, including country details, news, flag, and location on the map.
 
-### Country Search
+#### JavaScript Functions
+The code includes functions for fetching news data, displaying flags, presenting country information, and fetching and displaying maps.
 
-- The country search box is populated with a predefined list of countries based on the jobs API provider's data.
-
-### Event Listener
-
-- An event listener is implemented to capture the selected country name from the JSON file in the DOM.
-- The selected country name is then converted into a string and used to fetch additional information about the country from various API endpoints.
-
-### Google Maps Integration
-
-- Google Maps is integrated to provide visual representation and location details of the selected country.
-
-### News API Integration
-
-- The app fetches the latest news about the selected country from relevant API endpoints.
-
-## Usage
-
-1. Open the `index.html` file in your web browser.
-2. Use the country search box to select a country.
-3. Explore remote job opportunities and access additional information such as the country's flag, location on Google Maps, and the latest news.
-
-## Note
-
-- The country list in the search box is limited to the available countries from the jobs API provider.
-
-Feel free to explore, contribute, and make the Digital Nomads App an even more powerful tool for remote job seekers!
-
+#### Usage
+1. The **Country Information App** seamlessly integrates with the **Job Search App**. When a user selects a job from the search results, the app automatically sends the job's location (country name) to the **Country Information App**.
+2. The **Country Information App** then fetches detailed information about the selected country, providing users with comprehensive insights into the country's information, latest news, and geographical location.
