@@ -28,7 +28,7 @@
                   <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body">
+                <div class="offcanvas-body" id="side-bar">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -82,18 +82,20 @@
                         <!-- <input class="form-control me-2" type="type" placeholder="Search" aria-label="Search"> -->
                         <button class="btn btn-success" type="submit">Search</button>
                   </form>
+
+                  <div class="div mt-5">
+                    <p>Previous searches</p>
+                  </div>
     
                   <div class="container mt-5" id="previous-search-container">
-                    <div class="div">
-                        <p>Previous searches</p>
-                    </div>
-                    <div class="card" id="previous-search-card" style="width: 18rem;">
+                    
+                    <!-- <div class="card" id="previous-search-card" style="width: 18rem;">
                         <div class="card-body">
                           <h5 class="card-title">Saved country</h5>
                           <p class="card-text">Saved minimum salary</p>
                           <a href="#" class="btn btn-primary">Resubmit search</a>
                         </div>
-                      </div>
+                    </div> -->
                   </div>
                   </div>
                   
@@ -162,15 +164,17 @@
             <div class="row justify-content-center text-center" id="jobs-container-header">
                 <div class="col-8 m-4 jobs-title">
                     <h1>Are you ready to go?</h1>
-                    <h6 id="jobs-subtitle">Discover your next nomad experience in <span>USER COUNTRY INPUT</span> here:</h6>
+                    <h6 id="jobs-subtitle">Discover your next nomad experience in <span id="country"></span>:</h6>
                 </div>
             </div>
         
+            <div class = "container" id="pagination-container"></div> 
             <div class="container d-flex col-12 justify-content-center mb-5">
                 <div class="container row col-12 d-flex justify-content-center" id="job-results">
                     <!-- DYNAMIC CARDS WILL LOAD HERE FROM SCRIPTC LINE 273 -->
                 </div>
             </div>
+            
         </div>
     
     
@@ -231,7 +235,7 @@
 
     <footer id="footer-container"></footer>
 
-    <script src="scripta.css"></script>
+    <!-- <script src="scripta.js"></script> -->
 
     <!-- MITCH'S SCRIPT -->
 
@@ -245,6 +249,7 @@
     <script src="https://cdn.jsdelivr.net/npm/country-list-with-dial-code-and-flag/dist/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/country-list-with-dial-code-and-flag/dist/country-flag-svg.js"></script>
     <script src="scriptf.js"></script>
+    <script src="side_bar_features.js"></script>
 
     <!-- CAT'S SCRIPT -->
 
