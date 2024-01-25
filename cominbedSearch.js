@@ -315,6 +315,8 @@ const locations = [
       const jobIndustry = getSelectedIndustry(); // Get the selected industry
   
       localStorage.setItem('Country', countryInput);
+      document.querySelector("#country").textContent = `${countryInput}`;
+
   
       try {
         const jobs = await combinedJobSearch(countryInput, jobIndustry, annualSalaryMin);
