@@ -133,4 +133,48 @@ function populateSearchHistoryArea() {
 
 }
 
+function createDropdown(dropdownAnchor, Items){
+
+    const searchBar = document.createElement("input");
+
+    searchBar.className = "form-control mx-auto";
+
+    dropdownAnchor.appendChild(searchBar);
+
+    Items.forEach(item => {
+
+        const dropdownItem = document.createElement("li");
+
+        dropdownItem.textContent = item;
+
+        dropdownAnchor.appendChild(dropdownItem);
+
+    })
+
+}
+
+function filterDropdown(dropdown) {
+
+    const searchTerm = document.querySelector("input").value.toLowerCase();
+
+    const dropdownItems = dropdown.getElementsByTagName("li");
+
+    // should dropdownItem show  or not
+
+    for(const dropdownItem of dropdownItems){
+
+        const dropdownItemText = dropdownItem.textContent.toLowerCase();
+
+        dropdownItem.style.display = dropdownItemText.includes(searchTerm) ? "block" : "none";
+
+    }
+
+}
+
+function selectDropdownItem(dropdownAnchor, item){
+
+    dropdownAnchor.textContent = item;
+
+}
+
 window.onload = populateSearchHistoryArea;
