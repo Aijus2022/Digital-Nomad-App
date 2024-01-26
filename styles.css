@@ -156,14 +156,18 @@ button {
   color: #07211B;
 }
 
+#converter-outer-container {
+  height: 30vw;
+}
+
 #converter-container {
   background-color: white;
-  height: 10vw;
+  height: 15vw;
   transition: height 1.2s ease-in-out;
 }
 
 #converter-container:hover {
-  height: 20vw;
+  height: 25vw;
 }
 
 #baseCurrencyDropdown, #convertedCurrencyDropdown {
@@ -202,9 +206,6 @@ button img, .currency-flag-style {
   margin-left: 10px;
 }
 
-#footer-container {
-
-}
 
 /* #toggleButton{
   align-self: center;
@@ -214,3 +215,101 @@ button img, .currency-flag-style {
   border-radius: 50%;
 } */
 
+@media only screen and (max-width: 600px) {
+
+
+  /* Loading screen ---------------------------------------- */
+
+  #overview-container {
+    height: 100vw;
+    width: auto;
+    margin: auto;
+  }
+  
+  #pageload-logo {
+    width: 50vw;
+    margin: auto;
+  }
+
+  /* Main page ---------------------------------------- */
+
+  .navbar-brand {
+    width: 60px;
+    justify-content: center;
+  }
+
+  #home-logo {
+    height: 30px;
+    width: 30px;
+  }
+  
+  #menu-button {
+    width: 70px;
+  }
+
+  /* Header section */
+
+  #custom-jumbo {
+    height: 100vw;
+  }
+
+  #header-logo-wrapper {
+    width: 90%;
+  }
+
+  #header-motto {
+    font-size: 75%;
+  }
+
+  /* Job search section */
+
+  #search-container, #results-container {
+    height: 120vw;
+  }
+
+  #search-form {
+    max-height: 350px; /* Set the maximum height as per your requirement */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 30px, 10px; /* Optional: Add padding for content */
+    text-align: center;
+    /* background-color: #07211B; */
+  }
+
+  .form-label {
+    /* color: #B2E1D7 */
+  }
+
+  #job-results {
+    width: 100% 
+  }
+
+  .job-result h5 {
+    font-size: 75%;
+    /* padding: 5%; */
+  }
+
+  .job-result {
+    font-size: 75%;
+  }
+
+  #converter-container {
+    padding: 5vw 3vw;
+    flex-direction: column;
+    background-color: #07211B;
+  }
+
+  #converter-container h6 {
+    color: white
+  }
+
+  #converter-container label {
+    color: #B2E1D7
+  }
+
+  #converter-outer-container {
+    height: 100vw;
+    background-color: #07211B;
+  }
+
+
+}
