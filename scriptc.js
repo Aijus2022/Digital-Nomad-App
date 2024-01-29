@@ -374,7 +374,11 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
 
           setLocalStorage(userPreferences);
  
-          createCard(userPreferences);
+          const card = createCard(userPreferences);
+
+          const recentSearchesElement = document.getElementById("previous-search-container");
+
+          recentSearchesElement.prepend(card);
 
           createCountryLink(country); 
 

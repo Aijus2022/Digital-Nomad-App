@@ -1,6 +1,6 @@
-sideBarElement = document.getElementById("side-bar");
+const sideBarElement = document.getElementById("side-bar");
 
-recentSearchesElement = document.getElementById("previous-search-container");
+const recentSearchesElement = document.getElementById("previous-search-container");
 
 function setLocalStorage(userPreferences) {
 
@@ -99,9 +99,11 @@ function createCard({country, industry, salary}) {
 
     card.appendChild(cardBody);
 
+    return card;
+
     //append the search history card to the end of side bar
 
-    recentSearchesElement.prepend(card);
+    //recentSearchesElement.append(card);
 
 }
 
@@ -127,7 +129,9 @@ function populateSearchHistoryArea() {
 
     searchHistory.forEach(userPreferences => {
 
-        createCard(userPreferences);
+      const card = createCard(userPreferences);
+
+      recentSearchesElement.append(card);
 
     });
 
