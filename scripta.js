@@ -17,6 +17,7 @@
 
       var countryName = localStorage.getItem("lastSearched");
 
+      console.log(countryName);
       fetchCountryInfo(countryName);
       fetchMapForCountry(countryName);
       fetchAndDisplayFlag(countryName);

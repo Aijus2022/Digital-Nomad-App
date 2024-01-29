@@ -149,7 +149,6 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
           });
         }
 
-        let selectedCountry;
       
       
         async function combinedJobSearch(countryName, industryName, annualSalaryMin) {
@@ -158,10 +157,10 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
               location.geoName.toLowerCase().includes(countryName.toLowerCase())
             );
       
-             selectedCountry = matchingLocations.length > 0 ? matchingLocations[0].geoSlug : '';
+             const selectedCountry = matchingLocations.length > 0 ? matchingLocations[0].geoSlug : '';
       
             if (!selectedCountry) {
-              displayErrorMessage(`Country "${countryName}" not found!`);
+              
               console.error('No country selected.');
               return [];
             }
@@ -172,7 +171,7 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
             );
       
             if (!selectedIndustry) {
-              displayErrorMessage(`Industry "${industryName}" not found!`);
+              
               console.error('Invalid industry value. No matching industry slug found.');
               return [];
             }
@@ -190,6 +189,9 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
       
             const validJobs = data.jobs.filter(job => parseInt(annualSalaryMin) < parseInt(job.annualSalaryMin));
       
+
+            console.log(validJobs);
+
             if(validJobs.length === 0){
 
               displayErrorMessage(`No ${industryName} jobs in ${countryName} with annual salary of ${annualSalaryMin} found.`)
@@ -317,37 +319,40 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
         }
       
         async function submitSearch() {
-          let annualSalaryMin = document.getElementById('job-salary-input').value;
+                                                               
+          const country = document.getElementById('search-input').value;
 
-          if(!isNumber(annualSalaryMin)){
+          const industry = document.getElementById('job-description-input').value;
 
-            displayErrorMessage(`${annualSalaryMin} is not a number!` )
+          const salary = document.getElementById('job-salary-input').value;
+         
+          // validating user input
+
+          if(!isValidCountry(country)){
+
+            displayErrorMessage(`Country "${country}" not found!`);
+
+            return;
+
+          }
+           
+          else if(!isValidIndustry(industry)){
+
+            displayErrorMessage(`Industry "${industry}" not found!`);
 
             return;
 
           }
 
-         
-      
-          const countryInput = getSelectedCountry();
-          const jobIndustry = getSelectedIndustry(); // Get the selected industry
+          else if(!isNumber(salary)){
 
-          createCountryLink(countryInput);
+            displayErrorMessage(`${salary} is not a number!` );
 
-          
+            return;
 
+          }
 
-          var country = document.getElementById('search-input').value;
-          var industry = document.getElementById('job-description-input').value;
-          var salary = document.getElementById('job-salary-input').value;
-
-          // Create an object with country and salary properties
-          var userPreferences = {
-            country: country,
-            industry: industry,
-            salary: salary
-          };
-
+          // remove oldest saved card from side bar's search history
 
           if(getLocalStorage().length == 5){
 
@@ -355,37 +360,45 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
 
           }
 
+          // Create an object with country industry and salary properties
+
+          let userPreferences = {
+
+            country: country,
+
+            industry: industry,
+
+            salary: salary
+
+          };
 
           setLocalStorage(userPreferences);
  
-          createCard(userPreferences);
+          const card = createCard(userPreferences);
 
-          localStorage.setItem("lastSearched",country);
-        
+          const recentSearchesElement = document.getElementById("previous-search-container");
+
+          recentSearchesElement.prepend(card);
+
+          createCountryLink(country); 
+
+          localStorage.setItem("lastSearched", country);   
           
-
-          
-
-
-
-          
-
-
-          // Convert the object to a JSON string and save it to local storage
-
-          // localStorage.setItem('userPreferences', JSON.stringify(userPreferences));
-
           try {
-            const jobs = await combinedJobSearch(countryInput, jobIndustry, annualSalaryMin);
-            displayPage(currentPage,jobs);
-            updatePagination(jobs);
-            
-            //createCurrentDataElement(countryInput, jobs);
-          } catch (error) {
-            console.error('Error:', error);
-          }
 
-         
+            const jobs = await combinedJobSearch(country, industry, salary);
+            
+            displayPage(currentPage,jobs);
+
+            updatePagination(jobs);
+                
+          }
+          
+          catch (error) {
+
+            console.error('Error:', error);
+
+          }
 
         }
 
@@ -400,8 +413,8 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
             const jobs = await combinedJobSearch(country, industry, salary);
             
             displayPage(currentPage,jobs);
+
             updatePagination(jobs);
-            //createCurrentDataElement(country, jobs);
           
           } 
           
@@ -411,33 +424,59 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
 
           }
 
-
         }
 
         function displayErrorMessage(message) {
+
           // Create a container for the error message
+
           const errorMessageContainer = document.createElement('div');
+
           errorMessageContainer.className = 'position-fixed top-50 start-50 translate-middle bg-danger text-white p-3 rounded';
         
           // Create the error message element
+
           const errorMessageElement = document.createElement('div');
+
           errorMessageElement.textContent = message;
         
           // Append the message element to the container
+
           errorMessageContainer.appendChild(errorMessageElement);
         
           // Append the container to the body
+
           document.body.appendChild(errorMessageContainer);
         
           // Remove the element after three seconds
+
           setTimeout(() => {
+
             errorMessageContainer.remove();
+
           }, 3000);
+
         }
+
+        function isValidCountry(country){
+
+          return locations.some(locationObject => locationObject.geoName.toLowerCase() === country.toLowerCase());
+        
+        }
+
+        function isValidIndustry(industry){
+
+          return jobIndustries.some(jobIndustryObject => jobIndustryObject.industryName.toLowerCase() === industry.toLowerCase());
+
+        }
+
       
         document.getElementById('search-button').addEventListener('click', async function (event) {
+
           event.preventDefault();
+
           await submitSearch();
+
         });
 
         function createCountryLink(country){
@@ -453,8 +492,6 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
           countryPageLinkElement.textContent = country;
 
           countryNameElement.appendChild(countryPageLinkElement);
-
-
 
 
         }
@@ -583,7 +620,7 @@ let annualSalaryMin = document.getElementById("job-salary-input").value;
       
         document.getElementById('search-input').addEventListener('input', async function (event) {
           event.preventDefault();
-          selectedCountry = getSelectedCountry();
+          const selectedCountry = getSelectedCountry();
           const matchingLocations = locations.filter(location =>
             location.geoName.toLowerCase().includes(selectedCountry.toLowerCase())
           );

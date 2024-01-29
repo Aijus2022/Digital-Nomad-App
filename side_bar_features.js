@@ -1,6 +1,6 @@
-sideBarElement = document.getElementById("side-bar");
+const sideBarElement = document.getElementById("side-bar");
 
-recentSearchesElement = document.getElementById("previous-search-container");
+const recentSearchesElement = document.getElementById("previous-search-container");
 
 function setLocalStorage(userPreferences) {
 
@@ -99,9 +99,11 @@ function createCard({country, industry, salary}) {
 
     card.appendChild(cardBody);
 
+    return card;
+
     //append the search history card to the end of side bar
 
-    recentSearchesElement.prepend(card);
+    //recentSearchesElement.append(card);
 
 }
 
@@ -127,9 +129,55 @@ function populateSearchHistoryArea() {
 
     searchHistory.forEach(userPreferences => {
 
-        createCard(userPreferences);
+      const card = createCard(userPreferences);
+
+      recentSearchesElement.append(card);
 
     });
+
+}
+
+function createDropdown(dropdownAnchor, Items){
+
+    const searchBar = document.createElement("input");
+
+    searchBar.className = "form-control mx-auto";
+
+    dropdownAnchor.appendChild(searchBar);
+
+    Items.forEach(item => {
+
+        const dropdownItem = document.createElement("li");
+
+        dropdownItem.textContent = item;
+
+        dropdownAnchor.appendChild(dropdownItem);
+
+    })
+
+}
+
+function filterDropdown(dropdown) {
+
+    const searchTerm = document.querySelector("input").value.toLowerCase();
+
+    const dropdownItems = dropdown.getElementsByTagName("li");
+
+    // should dropdownItem show  or not
+
+    for(const dropdownItem of dropdownItems){
+
+        const dropdownItemText = dropdownItem.textContent.toLowerCase();
+
+        dropdownItem.style.display = dropdownItemText.includes(searchTerm) ? "block" : "none";
+
+    }
+
+}
+
+function selectDropdownItem(dropdownAnchor, item){
+
+    dropdownAnchor.textContent = item;
 
 }
 
